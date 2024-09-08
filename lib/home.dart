@@ -1,5 +1,5 @@
-import 'package:app_one/screen2.dart';
-import 'package:app_one/scrren1.dart';
+// import 'package:app_one/screen2.dart';
+// import 'package:app_one/scrren1.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,6 +12,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+  int index = 0;
+  List<Widget> pages = [
+    const Scaffold(
+      body: Center(child: Text("Screeeen 1")),
+    ),
+    const Scaffold(
+      body: Center(child: Text("Screeeen 2")),
+    )
+  ];
   DateTime? date;
   void selectScreen(BuildContext ctx) {
     Navigator.of(ctx).pushNamed("/x2");
@@ -22,6 +31,23 @@ class _HomePage extends State<HomePage> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.amber,
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.white,
+          currentIndex: index,
+          type: BottomNavigationBarType.fixed,
+          onTap: (value) {
+            setState(() {
+              index = value;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.category), label: "Part 1"),
+            BottomNavigationBarItem(icon: Icon(Icons.category), label: "Part 2")
+          ],
+        ),
         drawerScrimColor: Colors.amber.withOpacity(.2),
         drawer: Drawer(
           backgroundColor: Colors.amber.withOpacity(.6),
@@ -64,21 +90,8 @@ class _HomePage extends State<HomePage> {
         appBar: AppBar(
           title: const Text("Home Page"),
           backgroundColor: Colors.amber,
-          bottom: const TabBar(tabs: [
-            Tab(
-              icon: Icon(Icons.category),
-              child: Text("Part 1"),
-            ),
-            Tab(
-              icon: Icon(Icons.star),
-              child: Text("Part 2"),
-            ),
-          ]),
         ),
-        body: const TabBarView(children: [
-          Screen1(),
-          Screen2(),
-        ]),
+        body: pages[index],
       ),
     );
   }

@@ -1,97 +1,49 @@
-// import 'package:app_one/screen2.dart';
-// import 'package:app_one/scrren1.dart';
+import 'dart:developer' as dev;
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class MyPageHome extends StatefulWidget {
+  const MyPageHome({super.key});
 
   @override
-  State<StatefulWidget> createState() {
-    return _HomePage();
-  }
+  State<MyPageHome> createState() => _MyPageHomeState();
 }
 
-class _HomePage extends State<HomePage> {
-  int index = 0;
-  List<Widget> pages = [
-    const Scaffold(
-      body: Center(child: Text("Screeeen 1")),
-    ),
-    const Scaffold(
-      body: Center(child: Text("Screeeen 2")),
-    )
-  ];
-  DateTime? date;
-  void selectScreen(BuildContext ctx) {
-    Navigator.of(ctx).pushNamed("/x2");
+class _MyPageHomeState extends State<MyPageHome> {
+  int selectedPic = 1;
+  var random = Random();
+  void changePic() {
+    setState(() {
+      selectedPic = random.nextInt(6) + 1;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.amber,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.white,
-          currentIndex: index,
-          type: BottomNavigationBarType.fixed,
-          onTap: (value) {
-            setState(() {
-              index = value;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.category), label: "Part 1"),
-            BottomNavigationBarItem(icon: Icon(Icons.category), label: "Part 2")
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 233, 212, 149),
+      appBar: AppBar(
+        title: const Text("Design One"),
+        backgroundColor: Colors.amber,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              "images/dice-$selectedPic.png",
+              width: 200,
+            ),
+            const SizedBox(height: 50),
+            ElevatedButton(
+                onPressed: () {
+                  changePic();
+                  dev.log("Clicked");
+                },
+                child: const Text("CLick"))
           ],
         ),
-        drawerScrimColor: Colors.amber.withOpacity(.2),
-        drawer: Drawer(
-          backgroundColor: Colors.amber.withOpacity(.6),
-          child: ListView(
-            children: [
-              ListTile(
-                title: const Text("Screen 1"),
-                onTap: () {
-                  Navigator.of(context).pushNamed("/x1");
-                },
-                subtitle: const Text("subtitle"),
-                trailing: const Icon(Icons.arrow_forward_ios),
-              ),
-              ListTile(
-                onTap: () {
-                  selectScreen(context);
-                },
-                title: const Text("Screen 2"),
-              ),
-              OutlinedButton(
-                  onPressed: () {
-                    setState(() {
-                      showDatePicker(
-                        context: context,
-                        initialDate: DateTime(2020, 5, 1),
-                        firstDate: DateTime(2018, 5, 1),
-                        lastDate: DateTime.now(),
-                      ).then((val) {
-                        setState(() {
-                          date = val;
-                        });
-                      });
-                    });
-                  },
-                  child: const Text("Click")),
-              // const Text("$date"),
-            ],
-          ),
-        ),
-        appBar: AppBar(
-          title: const Text("Home Page"),
-          backgroundColor: Colors.amber,
-        ),
-        body: pages[index],
       ),
     );
   }

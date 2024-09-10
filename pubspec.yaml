@@ -65,6 +65,12 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - images/OIP.jpeg
+    - images/dice-1.png
+    - images/dice-2.png
+    - images/dice-3.png
+    - images/dice-4.png
+    - images/dice-5.png
+    - images/dice-6.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

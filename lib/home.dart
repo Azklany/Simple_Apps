@@ -1,48 +1,44 @@
-import 'dart:developer' as dev;
-import 'dart:math';
-
+import 'package:app_one/scrren1.dart';
 import 'package:flutter/material.dart';
 
-class MyPageHome extends StatefulWidget {
-  const MyPageHome({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
   @override
-  State<MyPageHome> createState() => _MyPageHomeState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyPageHomeState extends State<MyPageHome> {
-  int selectedPic = 1;
-  var random = Random();
-  void changePic() {
-    setState(() {
-      selectedPic = random.nextInt(6) + 1;
-    });
-  }
-
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 233, 212, 149),
-      appBar: AppBar(
-        title: const Text("Design One"),
-        backgroundColor: Colors.amber,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              "images/dice-$selectedPic.png",
-              width: 200,
-            ),
-            const SizedBox(height: 50),
-            ElevatedButton(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              colors: [Colors.blue, Colors.green],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("images/OIP.jpeg", width: 200),
+              const SizedBox(height: 30),
+              OutlinedButton.icon(
                 onPressed: () {
-                  changePic();
-                  dev.log("Clicked");
+                  Navigator.of(context)
+                      .pushReplacement(MaterialPageRoute(builder: (_) {
+                    return const Screen1();
+                  }));
                 },
-                child: const Text("CLick"))
-          ],
+                label: const Text("Start Quiz"),
+                icon: const Icon(Icons.arrow_forward),
+                style: OutlinedButton.styleFrom(
+                    backgroundColor: const Color.fromARGB(255, 85, 169, 88)),
+              )
+            ],
+          ),
         ),
       ),
     );

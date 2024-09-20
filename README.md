@@ -1,4 +1,15 @@
-# app_one
+# Simple Apps by Flutter
+
+### App_One
+ - Roll Dice App
+
+### App_Two
+- Simple Quiz App
+
+### App_Three
+- Expenses App with Responsive design
+
+---
 
 A new Flutter project.
 

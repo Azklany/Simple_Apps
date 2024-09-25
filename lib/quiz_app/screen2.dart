@@ -1,5 +1,5 @@
 // import 'package:app_one/scrren1.dart';
-import 'package:app_one/home.dart';
+import 'package:app_one/quiz_app/home.dart';
 import 'package:flutter/material.dart';
 
 class Screen2 extends StatelessWidget {

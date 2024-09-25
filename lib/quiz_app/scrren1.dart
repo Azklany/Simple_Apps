@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:app_one/data/questions.dart';
-import 'package:app_one/screen2.dart';
+import 'package:app_one/quiz_app/questions.dart';
+import 'package:app_one/quiz_app/screen2.dart';
 import 'package:flutter/material.dart';
 
 class Screen1 extends StatefulWidget {

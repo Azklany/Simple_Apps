@@ -1,4 +1,4 @@
-import 'package:app_one/scrren1.dart';
+import 'package:app_one/quiz_app/scrren1.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {

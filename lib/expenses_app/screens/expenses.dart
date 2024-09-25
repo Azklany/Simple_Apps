@@ -1,6 +1,6 @@
-import 'package:app_one/chart/chart.dart';
-import 'package:app_one/data/expense.dart';
-import 'package:app_one/models/addsheet.dart';
+import 'package:app_one/expenses_app/chart/chart.dart';
+import 'package:app_one/expenses_app/data/expense.dart';
+import 'package:app_one/expenses_app/screens/addsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

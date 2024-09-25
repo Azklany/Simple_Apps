@@ -1,5 +1,5 @@
-import 'package:app_one/chart/chartbar.dart';
-import 'package:app_one/data/expense.dart';
+import 'package:app_one/expenses_app/chart/chartbar.dart';
+import 'package:app_one/expenses_app/data/expense.dart';
 import 'package:flutter/material.dart';
 
 class Chart extends StatelessWidget {

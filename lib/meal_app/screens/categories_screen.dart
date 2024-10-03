@@ -3,7 +3,6 @@ import 'package:app_one/meal_app/screens/drawer.dart';
 import 'package:app_one/meal_app/screens/meals_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../models/meal.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({

@@ -1,6 +1,6 @@
 import 'package:app_one/meal_app/screens/categories_screen.dart';
 import 'package:app_one/meal_app/screens/meals_screen.dart';
-import 'package:app_one/providiers/favourite_providier.dart';
+import 'package:app_one/meal_app/providiers/favourite_providier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

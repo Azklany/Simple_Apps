@@ -1,4 +1,4 @@
-import 'package:app_one/meal_app/screens/home.dart';
+import 'package:app_one/shop_app/widgets/grocery_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark),
       routes: {
-        "/": (_) => const HomePage(),
+        "/": (_) => const GroceryList(),
       },
     );
   }

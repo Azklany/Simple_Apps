@@ -1,10 +1,11 @@
-import 'package:app_one/providiers/favourite_providier.dart';
+import 'package:app_one/meal_app/providiers/favourite_providier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 import '../models/meal.dart';
 
+// ignore: unused_element
 AnimationController? _animated;
 
 class MealDetails extends ConsumerWidget {
